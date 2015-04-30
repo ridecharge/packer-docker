@@ -11,6 +11,6 @@ RUN cp packer* /usr/bin
 RUN mkdir /opt/packer
 
 ONBUILD WORKDIR /opt/packer
-ONBUILDCOPY . .
+ONBUILD COPY . .
 
 ENTRYPOINT ["make", "packer"]
