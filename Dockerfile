@@ -8,3 +8,9 @@ ADD https://dl.bintray.com/mitchellh/packer/packer_0.7.5_linux_amd64.zip /tmp/pa
 
 RUN unzip /tmp/packer_0.7.5_linux_amd64.zip
 RUN cp packer* /usr/bin
+RUN mkdir /opt/packer
+
+ONBUILD WORKDIR /opt/packer
+ONBUILDCOPY . .
+
+ENTRYPOINT ["make", "packer"]
